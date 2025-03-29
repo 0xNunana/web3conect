@@ -1,12 +1,13 @@
-"use client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { WagmiProvider } from "wagmi";
-import { config } from "@/config/web3";
-import Header from "@/components/layouts/Header";
-import Footer from "@/components/layouts/Footer";
 import "./globals.css";
+import ClientLayout from "@/components/layouts/ClientLayout";
 
-const queryClient = new QueryClient();
+export const metadata = {
+  title: "Supreme Web3 App",
+  description:
+    "Basic Web3 Framework with Next.js | Wagmi | Tanstack Query | shadcn | viem",
+  author: "0xNunana",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -15,15 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
-        <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-8">
-              {children}
-            </main>
-            <Footer />
-          </QueryClientProvider>
-        </WagmiProvider>
+        <ClientLayout children={children} />
       </body>
     </html>
   );
