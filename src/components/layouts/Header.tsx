@@ -70,7 +70,9 @@ export default function Header() {
               >
                 Portfolio
               </Link>
-              <div className="py-2">{/* <ConnectButton /> */}</div>
+              <div className="py-2">
+                <ConnectButton />
+              </div>
             </div>
           </div>
         )}
